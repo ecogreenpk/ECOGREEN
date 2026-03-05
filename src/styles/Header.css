@@ -1,0 +1,478 @@
+/* Header Styles with Enhanced Glass Morphism */
+.header {
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.85) 0%, 
+    rgba(255, 255, 255, 0.75) 50%, 
+    rgba(255, 255, 255, 0.9) 100%
+  );
+  padding: 0.6rem 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  backdrop-filter: blur(20px) saturate(200%);
+  -webkit-backdrop-filter: blur(20px) saturate(200%);
+  animation: slideDown 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 
+    0 15px 50px rgba(6, 95, 70, 0.12),
+    inset 0 1px 2px rgba(255, 255, 255, 0.5),
+    inset 0 -1px 1px rgba(0, 0, 0, 0.05);
+  transition: var(--transition-smooth);
+  will-change: transform, backdrop-filter, box-shadow;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 100%;
+  padding: 0 1rem;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 2rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  animation: fadeInUp 0.8s ease-out;
+  min-width: 0;
+  flex-wrap: nowrap;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.header.scrolled {
+  /* keep padding stable to avoid layout shifts; only change visual styles */
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 10px 40px rgba(5, 104, 74, 0.15);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.logo-image {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  transition: transform 0.28s ease, width 0.28s ease, height 0.28s ease;
+  background: transparent;
+  border-radius: 6px;
+  padding: 4px;
+  will-change: transform;
+}
+
+
+/* Visual shrink uses transforms on inner content to avoid reflow */
+.header .header-content {
+  transition: gap 0.22s ease;
+  will-change: auto;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  white-space: nowrap;
+}
+
+/* Update these specific sections in your Header.css */
+
+.logo-text h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  animation: fadeInUp 0.8s ease-out;
+  /* Removed the transparent fill so your inline colors (Blue/Green) show up */
+  -webkit-text-fill-color: initial;
+  background-clip: initial;
+}
+
+/* Fixed the .nav conflict */
+.nav {
+  display: flex;
+  gap: 1.25rem;
+  /* Removed the H1-specific font styles that were here */
+}
+
+.mobile-quote-link {
+  display: none;
+}
+
+/* Container for CTA and Toggle to keep them together on mobile */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Ensure Logo link doesn't underline */
+.logo {
+  text-decoration: none !important;
+}
+
+
+.nav a.active,
+.nav a[data-active="true"] {
+  background: linear-gradient(90deg, rgba(21, 163, 74, 0.12), rgba(34, 197, 94, 0.08));
+  box-shadow: inset 0 -4px 0 rgba(21, 163, 74, 0.06);
+}
+
+.nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary-green);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav a:hover {
+  background-color: rgba(21, 163, 74, 0.1);
+  transform: translateY(-3px);
+}
+
+.nav a:hover::after {
+  width: 80%;
+}
+
+.menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.hamburger {
+  display: inline-block;
+  width: 30px;
+  height: 20px;
+  position: relative;
+}
+
+.hamburger .line {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: var(--text-dark);
+  border-radius: 2px;
+  transition: transform 0.28s cubic-bezier(.2, .9, .2, 1), opacity 0.18s ease;
+  position: absolute;
+  left: 0;
+}
+
+.hamburger .line-1 {
+  top: 0;
+}
+
+.hamburger .line-2 {
+  top: 9px;
+}
+
+.hamburger .line-3 {
+  top: 18px;
+}
+
+.menu-toggle.open .line-1 {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.menu-toggle.open .line-2 {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.menu-toggle.open .line-3 {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Mobile Menu */
+@media (max-width: 1024px) {
+  .logo-image {
+    width: 60px;
+    height: 60px;
+  }
+
+  .logo-text h1 {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .header {
+    padding: 0.45rem 0;
+  }
+
+  .header-content {
+    gap: 1.5rem;
+  }
+
+  .logo-image {
+    width: 58px;
+    height: 58px;
+  }
+
+  .logo-text h1 {
+    font-size: 1.25rem;
+  }
+
+  .nav {
+    gap: 1rem;
+  }
+
+  .nav a {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.85rem;
+  }
+
+  .btn-quote {
+    padding: 0.4rem 0.7rem;
+    font-size: 0.82rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .logo-image {
+    width: 56px;
+    height: 56px;
+  }
+
+  .logo-text h1 {
+    font-size: 1.2rem;
+  }
+
+  .nav {
+    gap: 0.9rem;
+  }
+
+  .nav a {
+    padding: 0.28rem 0.55rem;
+    font-size: 0.82rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: 1rem 0;
+    box-shadow: var(--glass-shadow);
+    border-bottom: 1px solid var(--glass-border);
+  }
+
+  .nav.open {
+    display: flex;
+  }
+
+  .nav a {
+    padding: 0.85rem;
+    border-bottom: 1px solid rgba(16, 185, 129, 0.08);
+    color: var(--primary-green);
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+
+  .nav a.mobile-quote-link {
+    display: block;
+    background: var(--secondary-green);
+    color: white;
+    margin: 1rem;
+    border-radius: 8px;
+    padding: 12px;
+    font-weight: 700;
+    box-shadow: 0 4px 15px rgba(21, 128, 61, 0.2);
+  }
+
+  .nav a:last-child {
+    border-bottom: none;
+  }
+
+  .header-content {
+    justify-content: space-between;
+  }
+
+  .logo {
+    gap: 1rem;
+  }
+
+  .logo-image {
+    width: 56px;
+    height: 56px;
+    padding: 4px;
+  }
+
+  .logo-text h1 {
+    font-size: 1.15rem;
+  }
+
+  .logo-text .tagline {
+    display: none;
+  }
+}
+
+.header-cta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-quote {
+  background: var(--secondary-green);
+  color: white;
+  padding: 0.55rem 0.9rem;
+  border-radius: 8px;
+  font-weight: 700;
+  box-shadow: 0 4px 15px rgba(21, 128, 61, 0.2);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
+}
+
+.btn-quote:hover {
+  background: var(--primary-green);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(10, 92, 47, 0.3);
+}
+
+@media (max-width: 768px) {
+  .header-cta {
+    display: none;
+  }
+
+  .menu-toggle {
+    order: 3;
+    margin-left: 0.5rem;
+  }
+
+  .btn-quote {
+    padding: 0.45rem 0.75rem;
+    font-size: 0.75rem;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 576px) {
+  .header {
+    padding: 0.4rem 0;
+  }
+
+  .header-content {
+    gap: 1rem;
+  }
+
+  .logo {
+    gap: 0.5rem;
+  }
+
+  .logo-image {
+    width: 52px;
+    height: 52px;
+    padding: 4px;
+  }
+
+  .logo-text h1 {
+    font-size: 1.05rem;
+  }
+
+  .menu-toggle {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 0.4rem 0;
+  }
+
+  .logo {
+    gap: 0.4rem;
+  }
+
+  .logo-image {
+    width: 48px;
+    height: 48px;
+    padding: 4px;
+  }
+
+  .logo-text h1 {
+    font-size: 1rem;
+  }
+
+  .menu-toggle {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .logo-image {
+    width: 44px;
+    height: 44px;
+    padding: 3px;
+  }
+
+  .logo-text h1 {
+    font-size: 0.9rem;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
