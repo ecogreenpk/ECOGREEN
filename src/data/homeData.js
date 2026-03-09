@@ -9,7 +9,7 @@ export const services = [
             'Volume-based scalable pricing',
             'Full regulatory compliance guidance'
         ],
-        link: '/get-quote',
+            link: '/get-quote',
         linkText: 'Get a Quote →',
         leaf: true
     },
@@ -44,34 +44,34 @@ export const services = [
 ];
 
 export const galleryImages = [
-    { src: '/images/pictures/facility/machine cu.png', category: 'Machinery', alt: 'Chemical Treatment Unit', width: 800, height: 450 },
-    { src: '/images/pictures/facility/shredders.png', category: 'Machinery', alt: 'Industrial Shredders', width: 800, height: 450 },
-    { src: '/images/pictures/facility/machinery.png', category: 'Machinery', alt: 'Heavy Duty Machinery', width: 800, height: 450 },
-    { src: '/images/pictures/facility/sh.png', category: 'Machinery', alt: 'System Controls', width: 800, height: 450 },
+    { src: '/images/pictures/facility/machine cu.webp', category: 'Machinery', alt: 'Chemical Treatment Unit', width: 800, height: 450 },
+    { src: '/images/pictures/facility/shredders.webp', category: 'Machinery', alt: 'Industrial Shredders', width: 800, height: 450 },
+    { src: '/images/pictures/facility/machinery.webp', category: 'Machinery', alt: 'Heavy Duty Machinery', width: 800, height: 450 },
+    { src: '/images/pictures/facility/sh.webp', category: 'Machinery', alt: 'System Controls', width: 800, height: 450 },
 
     { src: '/images/pictures/Hazarduous/Incinetration plant.webp', category: 'Hazardous', alt: 'Incineration Plant', width: 800, height: 450 },
-    { src: '/images/pictures/Hazarduous/abestos.jfif', category: 'Hazardous', alt: 'Asbestos Handling', width: 800, height: 450 },
-    { src: '/images/pictures/Hazarduous/electronic waste.jfif', category: 'Hazardous', alt: 'Electronic Waste', width: 800, height: 450 },
-    { src: '/images/pictures/Hazarduous/incinetrating.jfif', category: 'Hazardous', alt: 'Incinerating Station', width: 800, height: 450 },
-    { src: '/images/pictures/Hazarduous/medical waste.jfif', category: 'Hazardous', alt: 'Medical Waste Disposal', width: 800, height: 450 },
-    { src: '/images/pictures/Hazarduous/oil waste.jfif', category: 'Hazardous', alt: 'Oil Waste Management', width: 800, height: 450 },
-    { src: '/images/pictures/Hazarduous/stp.jfif', category: 'Hazardous', alt: 'Sewage Treatment Plant', width: 800, height: 450 },
+    { src: '/images/pictures/Hazarduous/abestos.webp', category: 'Hazardous', alt: 'Asbestos Handling', width: 800, height: 450 },
+    { src: '/images/pictures/Hazarduous/electronic waste.webp', category: 'Hazardous', alt: 'Electronic Waste', width: 800, height: 450 },
+    { src: '/images/pictures/Hazarduous/incinetrating.webp', category: 'Hazardous', alt: 'Incinerating Station', width: 800, height: 450 },
+    { src: '/images/pictures/Hazarduous/medical waste.webp', category: 'Hazardous', alt: 'Medical Waste Disposal', width: 800, height: 450 },
+    { src: '/images/pictures/Hazarduous/oil waste.webp', category: 'Hazardous', alt: 'Oil Waste Management', width: 800, height: 450 },
+    { src: '/images/pictures/Hazarduous/stp.webp', category: 'Hazardous', alt: 'Sewage Treatment Plant', width: 800, height: 450 },
 
-    { src: '/images/pictures/facility/dump.png', category: 'Logistics', alt: 'Material Storage', width: 800, height: 450 },
-    { src: '/images/pictures/facility/dumping.png', category: 'Logistics', alt: 'Sorting Floor', width: 800, height: 450 },
-    { src: '/images/pictures/NON hazarduous/godown.png', category: 'Logistics', alt: 'Recycling Warehouse', width: 800, height: 450 },
-    { src: '/images/pictures/NON hazarduous/godown2.png', category: 'Logistics', alt: 'Inventory Management', width: 800, height: 450 },
-    { src: '/images/pictures/NON hazarduous/godown3.png', category: 'Logistics', alt: 'Logistics Hub', width: 800, height: 450 },
+    { src: '/images/pictures/facility/storage.webp', category: 'Logistics', alt: 'Material Storage', width: 800, height: 450 },
+    { src: '/images/pictures/facility/dumping.webp', category: 'Logistics', alt: 'Sorting Floor', width: 800, height: 450 },
+    { src: '/images/pictures/NON hazarduous/godown.webp', category: 'Logistics', alt: 'Recycling Warehouse', width: 800, height: 450 },
+    { src: '/images/pictures/NON hazarduous/godown2.webp', category: 'Logistics', alt: 'Inventory Management', width: 800, height: 450 },
+    { src: '/images/pictures/NON hazarduous/godown3.webp', category: 'Logistics', alt: 'Logistics Hub', width: 800, height: 450 },
 
-    { src: '/images/pictures/NON hazarduous/cardb.png', category: 'Materials', alt: 'Cardboard Processing', width: 800, height: 450 },
-    { src: '/images/pictures/NON hazarduous/scrap tin.png', category: 'Materials', alt: 'Scrap Metal Recovery', width: 800, height: 450 },
-    { src: '/images/pictures/NON hazarduous/scrapA.png', category: 'Materials', alt: 'Industrial Scrap', width: 800, height: 450 },
-    { src: '/images/pictures/NON hazarduous/shreded.png', category: 'Materials', alt: 'Shredded Recyclables', width: 800, height: 450 },
+    { src: '/images/pictures/NON hazarduous/cardb.webp', category: 'Materials', alt: 'Cardboard Processing', width: 800, height: 450 },
+    { src: '/images/pictures/NON hazarduous/scrap tin.webp', category: 'Materials', alt: 'Scrap Metal Recovery', width: 800, height: 450 },
+    { src: '/images/pictures/NON hazarduous/scrapA.webp', category: 'Materials', alt: 'Industrial Scrap', width: 800, height: 450 },
+    { src: '/images/pictures/NON hazarduous/shreded.webp', category: 'Materials', alt: 'Shredded Recyclables', width: 800, height: 450 },
 
-    { src: '/images/pictures/safety/safety1.png', category: 'Safety', alt: 'Safety Protocol', width: 800, height: 450 },
-    { src: '/images/pictures/safety/safety2.png', category: 'Safety', alt: 'Protective Equipment', width: 800, height: 450 },
-    { src: '/images/pictures/safety/safety3.png', category: 'Safety', alt: 'Staff Monitoring', width: 800, height: 450 },
-    { src: '/images/pictures/facility/monitoring.png', category: 'Safety', alt: 'Operational Safety', width: 800, height: 450 }
+    { src: '/images/pictures/safety/safety1.webp', category: 'Safety', alt: 'Safety Protocol', width: 800, height: 450 },
+    { src: '/images/pictures/safety/safety2.webp', category: 'Safety', alt: 'Protective Equipment', width: 800, height: 450 },
+    { src: '/images/pictures/safety/safety3.webp', category: 'Safety', alt: 'Staff Monitoring', width: 800, height: 450 },
+    { src: '/images/pictures/facility/monitoring.webp', category: 'Safety', alt: 'Operational Safety', width: 800, height: 450 }
 ];
 
 export const infoLinks = [

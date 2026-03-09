@@ -1,9 +1,9 @@
 import { useState, useMemo, useCallback } from 'react'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import './styles/HomePage.css'
 import Hero from '../components/Hero'
 import QuotesSlider from '../components/QuotesSlider'
-// import ServiceCard from '../components/ServiceCard'
+import ServiceCard from '../components/ServiceCard'
 import { services, galleryImages, infoLinks } from '../data/homeData'
 
 function HomePage() {

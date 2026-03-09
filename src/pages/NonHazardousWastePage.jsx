@@ -1,4 +1,4 @@
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import '../pages/styles/CommonPages.css'
 
 function NonHazardousWastePage() {
@@ -16,21 +16,21 @@ function NonHazardousWastePage() {
             <p>We provide comprehensive non-hazardous waste solutions focused on sustainability and maximum resource recovery.</p>
             <div className="waste-categories" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px' }}>
               <div className="waste-item" style={{ borderLeftColor: 'var(--secondary-green)', padding: 0 }}>
-                <img src="/images/pictures/NON hazarduous/godown.png" alt="National Collection" className="card-img-top" />
+                <img src="/images/pictures/NON hazarduous/godown.webp" alt="National Collection" className="card-img-top" />
                 <div className="card-content">
                   <h3>National & Multinational Collection</h3>
                   <p>Comprehensive collection, transportation, storage, and handling/disposal of Non-Hazardous Waste Material from various National and Multinational Companies working in Pakistan.</p>
                 </div>
               </div>
               <div className="waste-item" style={{ borderLeftColor: 'var(--secondary-green)', padding: 0 }}>
-                <img src="/images/pictures/NON hazarduous/scrap tin.png" alt="3R System" className="card-img-top" />
+                <img src="/images/pictures/NON hazarduous/scrap tin.webp" alt="3R System" className="card-img-top" />
                 <div className="card-content">
                   <h3>3R System Disposal</h3>
                   <p>Professional disposal of Non-Hazardous Waste Material strictly based on the 3R system of <strong>Waste Reduce, Reuse, and Recycle</strong>.</p>
                 </div>
               </div>
               <div className="waste-item" style={{ borderLeftColor: 'var(--secondary-green)', padding: 0 }}>
-                <img src="/images/pictures/NON hazarduous/shreded.png" alt="Aerobic Composting" className="card-img-top" />
+                <img src="/images/pictures/NON hazarduous/shreded.webp" alt="Aerobic Composting" className="card-img-top" />
                 <div className="card-content">
                   <h3>Aerobic Composting</h3>
                   <p>Conversion of food waste to high-quality compost. Our composting process involves returning essential nutrients back into the environment by aerobically decomposing food waste material emerging from any food processing industries.</p>
@@ -57,7 +57,7 @@ function NonHazardousWastePage() {
                 <Link to="/get-quote" className="btn-highlight">Inquire About Decor</Link>
               </div>
               <div className="highlight-image">
-                <img src="/images/pictures/NON hazarduous/download.jfif" alt="Upcycled Garden Decor example" />
+                <img src="/images/pictures/NON hazarduous/download.webp" alt="Upcycled Garden Decor example" />
               </div>
             </div>
           </div>

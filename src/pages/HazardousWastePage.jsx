@@ -1,4 +1,4 @@
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import '../pages/styles/CommonPages.css'
 
 function HazardousWastePage() {
@@ -16,42 +16,42 @@ function HazardousWastePage() {
             <p>EcoGreen specializes in the safe disposal of hazardous materials with complete regulatory compliance and documentation.</p>
             <div className="waste-categories">
               <div className="waste-item">
-                <img src="/images/pictures/Hazarduous/stp.jfif" alt="Chemical Waste" className="card-img-top" />
+                <img src="/images/pictures/Hazarduous/stp.webp" alt="Chemical Waste" className="card-img-top" />
                 <div className="card-content">
                   <h3>Chemical Waste</h3>
                   <p>Industrial chemicals, solvents, and chemical compounds</p>
                 </div>
               </div>
               <div className="waste-item">
-                <img src="/images/pictures/Hazarduous/medical waste.jfif" alt="Medical Waste" className="card-img-top" />
+                <img src="/images/pictures/Hazarduous/medical waste.webp" alt="Medical Waste" className="card-img-top" />
                 <div className="card-content">
                   <h3>Medical Waste</h3>
                   <p>Hospital and healthcare facility waste</p>
                 </div>
               </div>
               <div className="waste-item">
-                <img src="/images/pictures/Hazarduous/incinetrating.jfif" alt="Toxic Materials" className="card-img-top" />
+                <img src="/images/pictures/Hazarduous/incinetrating.webp" alt="Toxic Materials" className="card-img-top" />
                 <div className="card-content">
                   <h3>Toxic Materials</h3>
                   <p>Pesticides, heavy metals, and hazardous substances</p>
                 </div>
               </div>
               <div className="waste-item">
-                <img src="/images/pictures/Hazarduous/electronic waste.jfif" alt="Electronic Components" className="card-img-top" />
+                <img src="/images/pictures/Hazarduous/electronic waste.webp" alt="Electronic Components" className="card-img-top" />
                 <div className="card-content">
                   <h3>Electronic Components</h3>
                   <p>Circuit boards and electronic hazardous materials</p>
                 </div>
               </div>
               <div className="waste-item">
-                <img src="/images/pictures/Hazarduous/oil waste.jfif" alt="Oil & Lubricants" className="card-img-top" />
+                <img src="/images/pictures/Hazarduous/oil waste.webp" alt="Oil & Lubricants" className="card-img-top" />
                 <div className="card-content">
                   <h3>Oil & Lubricants</h3>
                   <p>Used oils, lubricants, and fuel wastes</p>
                 </div>
               </div>
               <div className="waste-item">
-                <img src="/images/pictures/Hazarduous/abestos.jfif" alt="Asbestos" className="card-img-top" />
+                <img src="/images/pictures/Hazarduous/abestos.webp" alt="Asbestos" className="card-img-top" />
                 <div className="card-content">
                   <h3>Asbestos</h3>
                   <p>Asbestos-containing materials disposal</p>

@@ -1,8 +1,8 @@
 import { useEffect, lazy, Suspense } from 'react'
-// import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
 import PageTransition from './components/PageTransition'
-// import Header from './components/Header'
+import Header from './components/Header'
 import Footer from './components/Footer'
 import Chatbot from './components/Chatbot'
 import WhatsAppButton from './components/WhatsAppButton'
@@ -80,7 +80,7 @@ function AppContent() {
   return (
     <div className="app">
       <div className="background-logo" aria-hidden="true">
-        <img src="/images/logonew.png" alt="" className="background-logo-image" />
+        <img src="/images/logonew.webp" alt="" className="background-logo-image" />
       </div>
       <Header />
       <Suspense fallback={<div className="loading-fallback"><div className="loader"></div></div>}>

@@ -6,7 +6,7 @@ function Hero() {
     <section className="hero">
       <div className="hero-background">
         <img
-          src="/images/pictures/facility/hero.jfif"
+          src="/images/pictures/facility/hero.webp"
           alt="EcoGreen Facility"
           className="hero-banner"
           fetchPriority="high"

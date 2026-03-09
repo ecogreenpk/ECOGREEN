@@ -48,7 +48,7 @@ function UpcycledDecor() {
             <div className="gallery-grid">
               <div className="gallery-item">
                 <img 
-                  src="/images/pictures/garden/garden.jfif" 
+                  src="/images/pictures/garden/garden.webp" 
                   alt="Upcycled Garden Showcase"
                   className="gallery-image"
                   loading="lazy"
@@ -60,7 +60,7 @@ function UpcycledDecor() {
               </div>
               <div className="gallery-item">
                 <img 
-                  src="/images/pictures/garden/floral.jfif" 
+                  src="/images/pictures/garden/floral.webp" 
                   alt="Floral Arrangements"
                   className="gallery-image"
                   loading="lazy"
@@ -72,7 +72,7 @@ function UpcycledDecor() {
               </div>
               <div className="gallery-item">
                 <img 
-                  src="/images/pictures/garden/lawn.jfif" 
+                  src="/images/pictures/garden/lawn.webp" 
                   alt="Natural Lawn Spaces"
                   className="gallery-image"
                   loading="lazy"

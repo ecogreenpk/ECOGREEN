@@ -58,7 +58,7 @@ function Header() {
       <div className="container">
         <div className="header-content">
           <Link to="/" className="logo">
-            <img src="/images/logonew.png" alt="EcoGreen Logo" className="logo-image" width="50" height="50" loading="eager" />
+            <img src="/images/logonew.webp" alt="EcoGreen Logo" className="logo-image" width="50" height="50" loading="eager" />
             <div className="logo-text">
               <h1>
                 <span style={{ color: '#0077B6' }}>Eco</span>
