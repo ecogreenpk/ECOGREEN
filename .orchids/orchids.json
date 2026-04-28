@@ -1,7 +1,0 @@
-{
-  "projectId": "aab5606d-0864-4b15-99de-1c288618f405",
-  "createdAt": 1772879129457,
-  "version": "1.0",
-  "startupCommands": ["cd ECO-GREEN-main; bun install; bun run dev"],
-  "templateId": "any"
-}
