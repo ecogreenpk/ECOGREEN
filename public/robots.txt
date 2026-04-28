@@ -1,0 +1,28 @@
+# EcoGreen - Waste Management & Scrap Recycling
+# https://ecogreen.pk
+
+User-agent: *
+Allow: /
+Allow: /about
+Allow: /mission-vision
+Allow: /facilities
+Allow: /blog
+Allow: /get-quote
+Allow: /hazardous-waste
+Allow: /non-hazardous-waste
+Allow: /certificates
+Allow: /upcycled-decor
+
+Disallow: /admin
+Disallow: /admin/
+Disallow: /*.json$
+Disallow: /*?*print=
+
+# Sitemap
+Sitemap: https://ecogreen.pk/sitemap.xml
+
+Crawl-delay: 0
+User-agent: Bingbot
+Crawl-delay: 0
+
+Sitemap: https://ecogreen.pk/sitemap.xml
