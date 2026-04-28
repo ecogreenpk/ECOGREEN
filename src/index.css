@@ -1,0 +1,322 @@
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+@import "@fontsource/outfit/700.css";
+@import "@fontsource/outfit/800.css";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Custom Scrollbar - Hidden but functional */
+::-webkit-scrollbar {
+  width: 0;
+  display: none;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-height);
+  overflow-x: hidden;
+  width: 100%;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+html, body {
+  overflow-x: hidden;
+  -ms-overflow-style: none;
+}
+
+:root {
+  /* ---- Brand palette ---- */
+  --primary-green: #047857;
+  --secondary-green: #10b981;
+  --light-green: #34d399;
+  --accent-yellow: #f59e0b;
+  --accent-blue: #3b82f6;
+  --dark-green: #065f46;
+  --deep-emerald: #064e3b;
+
+  /* Neutral */
+  --text-dark: #1f2937;
+  --text-gray: #6b7280;
+  --text-light: #f9fafb;
+  --background-light: #ffffff;
+  --background-alt: #f0fdf9;
+
+  /* Glass */
+  --glass-bg: rgba(255, 255, 255, 0.78);
+  --glass-border: rgba(255, 255, 255, 0.88);
+  --glass-shadow: 0 12px 48px rgba(4, 47, 35, 0.12);
+  --glass-highlight: rgba(255, 255, 255, 0.4);
+
+  /* Liquid morphism */
+  --liquid-primary: rgba(16, 185, 129, 0.1);
+  --liquid-secondary: rgba(52, 211, 153, 0.08);
+  --liquid-accent: rgba(245, 158, 11, 0.06);
+
+  /* Transitions */
+  --transition-smooth: all 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  --transition-bouncy: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  --transition-fast: all 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-micro: all 0.12s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Header */
+  --header-height: clamp(64px, 8.5vw, 88px);
+
+  /* Fluid Typography */
+  --font-size-base: clamp(1rem, 2.5vw, 1.125rem);
+  --font-size-sm: clamp(0.875rem, 2vw, 1rem);
+  --font-size-lg: clamp(1.25rem, 3vw, 1.5rem);
+  --font-size-xl: clamp(1.75rem, 4vw, 2rem);
+  --font-size-2xl: clamp(2rem, 5vw, 2.75rem);
+  --font-size-3xl: clamp(2.5rem, 6vw, 3.5rem);
+  --font-size-4xl: clamp(3rem, 7vw, 4.5rem);
+
+  /* Spacing */
+  --spacing-xs: clamp(0.25rem, 1vw, 0.5rem);
+  --spacing-sm: clamp(0.5rem, 2vw, 1rem);
+  --spacing-md: clamp(1rem, 3vw, 1.5rem);
+  --spacing-lg: clamp(1.5rem, 4vw, 2rem);
+  --spacing-xl: clamp(2rem, 5vw, 3rem);
+
+  --container-max-width: min(100% - 2rem, 1400px);
+  --container-padding: clamp(1rem, 5vw, 2.5rem);
+}
+
+/* ============================================
+   KEYFRAMES (global)
+   ============================================ */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0.4deg); }
+  50%       { transform: translateY(-10px) rotate(-0.4deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.9; transform: scale(1.03); }
+}
+
+@keyframes glow {
+  from { box-shadow: 0 0 18px rgba(16, 185, 129, 0.25); }
+  to   { box-shadow: 0 0 32px rgba(16, 185, 129, 0.5), 0 0 60px rgba(16,185,129,0.12); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes rotation {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes bgFloat {
+  0%   { transform: translateY(0) rotate(0deg) scale(1); }
+  25%  { transform: translateY(-6px) rotate(-1.5deg) scale(1.015); }
+  50%  { transform: translateY(0) rotate(0.8deg) scale(1); }
+  75%  { transform: translateY(6px) rotate(-0.6deg) scale(1.01); }
+  100% { transform: translateY(0) rotate(0deg) scale(1); }
+}
+
+@keyframes logoShine {
+  0%, 100% { filter: saturate(1.1) contrast(1.1) brightness(1); }
+  50%       { filter: saturate(1.2) contrast(1.2) brightness(1.15); }
+}
+
+/* ============================================
+   BASE
+   ============================================ */
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--text-dark);
+  background: var(--background-light);
+  line-height: 1.6;
+  overflow-x: hidden;
+  font-size: var(--font-size-base);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  color: var(--primary-green);
+  letter-spacing: -0.02em;
+}
+
+p { line-height: 1.8; }
+
+a {
+  color: var(--secondary-green);
+  text-decoration: none;
+  transition: color 0.22s ease;
+}
+a:hover { color: var(--primary-green); }
+
+button, .btn {
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: none;
+  outline: none;
+  position: relative;
+  overflow: hidden;
+}
+
+button:active, .btn:active {
+  transform: scale(0.96);
+}
+
+/* Global Button Styles */
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary-green) 0%, var(--dark-green) 100%);
+  color: white;
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 15px rgba(4, 120, 87, 0.3);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 8px 25px rgba(4, 120, 87, 0.4);
+  transform: translateY(-2px);
+}
+
+input, textarea { font-family: inherit; }
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: auto;
+  object-fit: cover;
+}
+
+.facility-card img,
+.expertise-item img,
+.gallery-item img {
+  aspect-ratio: 16 / 9;
+}
+
+/* Scrollbar styling handled above */
+
+/* ============================================
+   SCROLL REVEAL
+   ============================================ */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Directional variants */
+.reveal-left  { transform: translateX(-28px); }
+.reveal-right { transform: translateX(28px); }
+.reveal-scale { transform: scale(0.94); }
+
+.reveal-left.in-view,
+.reveal-right.in-view,
+.reveal-scale.in-view {
+  transform: none;
+}
+
+/* Stagger delay utilities */
+.reveal-d1 { transition-delay: 0.08s; }
+.reveal-d2 { transition-delay: 0.16s; }
+.reveal-d3 { transition-delay: 0.24s; }
+.reveal-d4 { transition-delay: 0.32s; }
+.reveal-d5 { transition-delay: 0.40s; }
+
+/* ============================================
+   GLASS UTILITIES
+   ============================================ */
+
+.glass-effect {
+  background: var(--glass-bg);
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow), inset 0 1px 0 var(--glass-highlight);
+}
+
+/* ============================================
+   MATERIAL ICONS
+   ============================================ */
+
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ============================================
+   SELECTION
+   ============================================ */
+
+::selection         { background: var(--secondary-green); color: white; }
+::-moz-selection    { background: var(--secondary-green); color: white; }
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

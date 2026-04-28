@@ -1,0 +1,136 @@
+/* ===========================
+   APP SHELL — Enhanced 2026
+   =========================== */
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow-x: hidden;
+}
+
+.app {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding-top: var(--header-height);
+  overflow-x: hidden;
+}
+
+/* ---- Ambient background watermark logo ---- */
+.background-logo {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.16;
+  mix-blend-mode: multiply;
+  filter: drop-shadow(0 0 24px rgba(16, 185, 129, 0.12));
+}
+
+.background-logo-image {
+  width: min(68vw, 880px);
+  height: auto;
+  filter: saturate(1.15) contrast(1.1) blur(0.2px);
+  animation: bgFloat 24s ease-in-out infinite, logoShine 9s ease-in-out infinite;
+  transform-origin: center;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .background-logo-image { animation: none; }
+}
+
+/* ---- Container ---- */
+.container {
+  max-width: clamp(100%, min(1400px, 100vw - 2rem), 1400px);
+  margin: 0 auto;
+  padding: 0 clamp(0.875rem, 5vw, 2rem);
+  width: 100%;
+}
+
+@media (max-width: 1200px) { .container { max-width: 95%; } }
+@media (max-width: 992px)  { .container { max-width: 100%; padding: 0 clamp(0.75rem, 3.5vw, 1.5rem); } }
+@media (max-width: 768px)  { .container { padding: 0 clamp(0.75rem, 3vw, 1.25rem); } }
+@media (max-width: 576px)  { .container { padding: 0 clamp(0.625rem, 2.5vw, 1rem); } }
+@media (max-width: 480px)  { .container { padding: 0 clamp(0.5rem, 2vw, 0.875rem); } }
+@media (max-width: 360px)  { .container { padding: 0 0.5rem; } }
+
+/* Prevent horizontal scroll globally */
+* { max-width: 100%; }
+
+/* ---- Fluid Typography ---- */
+h1 { font-size: var(--font-size-4xl); line-height: 1.2; margin-bottom: clamp(0.5rem, 2vw, 1.5rem); }
+h2 { font-size: var(--font-size-3xl); line-height: 1.3; margin-bottom: clamp(0.5rem, 1.5vw, 1.25rem); }
+h3 { font-size: var(--font-size-2xl); line-height: 1.4; margin-bottom: clamp(0.25rem, 1vw, 1rem); }
+h4 { font-size: var(--font-size-xl);  margin-bottom: clamp(0.25rem, 0.8vw, 0.75rem); }
+p  { font-size: var(--font-size-base); line-height: 1.7; margin-bottom: clamp(0.5rem, 1vw, 1rem); }
+
+/* ---- Touch-Friendly Buttons ---- */
+button, .btn, a.btn {
+  min-height: max(44px, 2.75rem);
+  min-width: max(44px, 6rem);
+  padding: clamp(0.6rem, 1.5vw, 1rem) clamp(1rem, 3vw, 1.5rem);
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
+  border-radius: clamp(6px, 1vw, 12px);
+  transition: var(--transition-fast);
+}
+
+@media (max-width: 480px) {
+  button, .btn, a.btn {
+    min-height: 42px;
+    padding: 0.65rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* ---- Responsive Media ---- */
+img { max-width: 100%; height: auto; display: block; }
+iframe, video { max-width: 100%; height: auto; }
+
+/* ---- Loading Fallback ---- */
+.loading-fallback {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.25rem;
+  min-height: 60vh;
+  width: 100%;
+}
+
+/* Spinner rings */
+.loader {
+  position: relative;
+  width: 52px;
+  height: 52px;
+}
+
+.loader::before,
+.loader::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+}
+
+.loader::before {
+  inset: 0;
+  border: 4px solid rgba(4, 120, 87, 0.12);
+  border-top-color: var(--secondary-green);
+  animation: rotation 0.85s linear infinite;
+}
+
+.loader::after {
+  inset: 8px;
+  border: 4px solid rgba(4, 120, 87, 0.08);
+  border-bottom-color: var(--light-green);
+  animation: rotation 1.1s linear infinite reverse;
+}

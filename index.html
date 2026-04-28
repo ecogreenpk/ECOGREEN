@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="images/logonew.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#15803d" />
+  <meta name="description" content="EcoGreen" />
+  <meta name="keywords"
+    content="scrap, recycling, sustainability, commercial waste, hazardous waste, green infrastructure" />
+  <meta name="author" content="EcoGreen Solutions" />
+
+  <!-- Open Graph Tags -->
+  <meta property="og:title" content="EcoGreen" />
+  <meta property="og:description"
+    content="Transform your business's waste into sustainable resources with our premium management services." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/images/logonew.png" />
+
+  <title>EcoGreen</title>
+
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="/images/logonew.webp" as="image" type="image/webp">
+    <link rel="preload" href="/images/pictures/facility/hero.webp" as="image" type="image/webp" fetchpriority="high">
+
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
+    media="print" onload="this.media='all'" />
+
+  <!-- Critical CSS for FCP/CLS -->
+  <style>
+    :root {
+      --primary-green: #047857;
+      --secondary-green: #10b981;
+      --glass-bg: rgba(255, 255, 255, 0.65);
+      --header-height: clamp(64px, 8.5vw, 96px);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: sans-serif;
+      overflow-x: hidden;
+    }
+
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      height: var(--header-height);
+      background: var(--glass-bg);
+      backdrop-filter: blur(12px);
+    }
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #064e3b;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: white;
+      width: 100%;
+      max-width: 900px;
+      padding: 0 20px;
+    }
+
+    .logo-image {
+      width: 50px;
+      height: 50px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
+</html>

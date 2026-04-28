@@ -1,0 +1,271 @@
+/* UpcycledDecor.css */
+
+.upcycled-hero {
+  position: relative;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/images/pictures/garden/garden.webp');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 120px 20px;
+  text-align: center;
+  border-radius: 0 0 30px 30px;
+  margin-bottom: 60px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.upcycled-hero h1 {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  font-weight: 800;
+}
+
+.upcycled-hero p {
+  font-size: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+  font-weight: 400;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.why-choose-section {
+  background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%);
+  padding: 60px 20px;
+  border-radius: 20px;
+  margin-bottom: 60px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  border: 1px solid rgba(16, 185, 129, 0.1);
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.benefit-card {
+  text-align: center;
+  padding: 40px 30px;
+  background: white;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+.benefit-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  border-color: var(--secondary-green);
+}
+
+.benefit-icon {
+  font-size: 3.5rem;
+  color: var(--secondary-green);
+  margin-bottom: 20px;
+  background: rgba(16, 185, 129, 0.1);
+  padding: 15px;
+  border-radius: 50%;
+  display: inline-flex;
+}
+
+.collection-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+  background: white;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.collection-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.collection-icon-wrapper {
+  background: linear-gradient(135deg, var(--secondary-green) 0%, var(--primary-green) 100%);
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.collection-icon {
+  font-size: 3rem;
+  color: white;
+}
+
+.collection-content {
+  padding: 30px;
+  flex-grow: 1;
+}
+
+.collection-content h3 {
+  color: var(--primary-green);
+  margin-bottom: 12px;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.collection-content p {
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Gallery Enhancements */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
+  align-items: stretch;
+}
+
+.gallery-item {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  min-height: 320px;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  isolation: isolate;
+}
+
+.gallery-image-wrap {
+  position: absolute;
+  inset: 0;
+}
+
+.gallery-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gallery-item:hover .gallery-image {
+  transform: scale(1.1);
+}
+
+.gallery-overlay {
+  position: relative;
+  z-index: 1;
+  margin-top: auto;
+  background: linear-gradient(to top, rgba(0,0,0,0.88), rgba(0,0,0,0.18), transparent);
+  padding: 48px 24px 24px;
+  min-height: 130px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.gallery-overlay h4 {
+  font-size: 1.5rem;
+  margin-top: 5px;
+  margin-bottom: 0;
+  color: #fff;
+}
+
+.gallery-overlay span {
+  width: fit-content;
+}
+
+/* CTA Section Enhancement */
+.cta-section-enhanced {
+  background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 100%);
+  color: white;
+  padding: 80px 20px;
+  border-radius: 20px;
+  text-align: center;
+  margin-top: 80px;
+  box-shadow: 0 20px 40px rgba(6, 78, 59, 0.2);
+}
+
+.cta-section-enhanced h3 {
+  color: white;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.cta-section-enhanced p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto 40px;
+}
+
+.btn-cta {
+  background: white;
+  color: var(--primary-green);
+  padding: 15px 40px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.btn-cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+  background: #f0fdf4;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .upcycled-hero {
+    padding: 80px 20px;
+    border-radius: 0 0 20px 20px;
+  }
+  
+  .upcycled-hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .upcycled-hero p {
+    font-size: 1.1rem;
+  }
+  
+  .benefits-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-item {
+    min-height: 260px;
+  }
+
+  .gallery-overlay {
+    padding: 40px 20px 20px;
+    min-height: 110px;
+  }
+  
+  .cta-section-enhanced h3 {
+    font-size: 2rem;
+  }
+}
