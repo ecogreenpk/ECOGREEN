@@ -1,39 +1,47 @@
-/* Header Styles with Enhanced Glass Morphism */
+/* ===========================
+   HEADER — Enhanced 2026
+   =========================== */
+
 .header {
-  background: linear-gradient(135deg, 
-    rgba(255, 255, 255, 0.85) 0%, 
-    rgba(255, 255, 255, 0.75) 50%, 
-    rgba(255, 255, 255, 0.9) 100%
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.82) 0%,
+    rgba(255, 255, 255, 0.72) 50%,
+    rgba(255, 255, 255, 0.88) 100%
   );
-  padding: 0.6rem 0;
+  padding: 0.55rem 0;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
-  backdrop-filter: blur(20px) saturate(200%);
-  -webkit-backdrop-filter: blur(20px) saturate(200%);
-  animation: slideDown 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  border: 1px solid rgba(255, 255, 255, 0.9);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.6);
-  box-shadow: 
-    0 15px 50px rgba(6, 95, 70, 0.12),
-    inset 0 1px 2px rgba(255, 255, 255, 0.5),
-    inset 0 -1px 1px rgba(0, 0, 0, 0.05);
-  transition: var(--transition-smooth);
-  will-change: transform, backdrop-filter, box-shadow;
+  backdrop-filter: blur(22px) saturate(200%);
+  -webkit-backdrop-filter: blur(22px) saturate(200%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.55);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.9) inset,
+    0 12px 40px rgba(4, 47, 35, 0.08);
+  transition:
+    background 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    backdrop-filter 0.4s ease;
+  will-change: transform, backdrop-filter;
+  animation: headerSlideDown 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-@keyframes slideDown {
-  from {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
+@keyframes headerSlideDown {
+  from { transform: translateY(-100%); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
 
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
+.header.scrolled {
+  background: rgba(255, 255, 255, 0.93);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.95) inset,
+    0 8px 32px rgba(4, 47, 35, 0.12);
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  padding: 0.4rem 0;
 }
 
 .header .container {
@@ -41,7 +49,7 @@
   justify-content: space-between;
   align-items: center;
   max-width: 100%;
-  padding: 0 1rem;
+  padding: 0 1.25rem;
 }
 
 .header-content {
@@ -50,46 +58,36 @@
   align-items: center;
   width: 100%;
   gap: 2rem;
+  transition: gap 0.25s ease;
 }
 
+/* ---- Logo ---- */
 .logo {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  animation: fadeInUp 0.8s ease-out;
-  min-width: 0;
-  flex-wrap: nowrap;
-  text-decoration: none;
+  gap: 0.85rem;
+  text-decoration: none !important;
   color: inherit;
   cursor: pointer;
-  transition: all 0.3s ease;
+  min-width: 0;
+  flex-shrink: 0;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.header.scrolled {
-  /* keep padding stable to avoid layout shifts; only change visual styles */
-  background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 10px 40px rgba(5, 104, 74, 0.15);
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.6);
-}
+.logo:hover { transform: scale(1.02); }
 
 .logo-image {
-  width: 64px;
-  height: 64px;
+  width: 58px;
+  height: 58px;
   object-fit: contain;
-  transition: transform 0.28s ease, width 0.28s ease, height 0.28s ease;
   background: transparent;
-  border-radius: 6px;
-  padding: 4px;
+  border-radius: 8px;
+  padding: 3px;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: transform;
 }
 
-
-/* Visual shrink uses transforms on inner content to avoid reflow */
-.header .header-content {
-  transition: gap 0.22s ease;
-  will-change: auto;
-}
+.logo:hover .logo-image { transform: rotate(-4deg) scale(1.05); }
 
 .logo-text {
   display: flex;
@@ -98,256 +96,88 @@
   white-space: nowrap;
 }
 
-/* Update these specific sections in your Header.css */
-
 .logo-text h1 {
   margin: 0;
-  font-size: 1.5rem;
-  font-weight: 700;
+  font-size: 1.45rem;
+  font-weight: 800;
   letter-spacing: -0.5px;
-  animation: fadeInUp 0.8s ease-out;
-  /* Removed the transparent fill so your inline colors (Blue/Green) show up */
   -webkit-text-fill-color: initial;
   background-clip: initial;
 }
 
-/* Fixed the .nav conflict */
+.logo-eco   { color: #0077B6; }
+.logo-green { color: #2D6A4F; }
+
+.tagline {
+  font-size: 0.7rem;
+  color: var(--text-gray);
+  margin: 0;
+  letter-spacing: 0.3px;
+}
+
+/* ---- Nav ---- */
 .nav {
   display: flex;
-  gap: 1.25rem;
-  /* Removed the H1-specific font styles that were here */
+  gap: 0.25rem;
+  align-items: center;
 }
 
-.mobile-quote-link {
-  display: none;
+.nav-link {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.45rem 0.75rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  text-decoration: none;
+  transition:
+    color 0.22s ease,
+    background 0.22s ease,
+    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  white-space: nowrap;
+  overflow: hidden;
 }
 
-/* Container for CTA and Toggle to keep them together on mobile */
+.nav-link:hover {
+  color: var(--primary-green);
+  background: rgba(4, 120, 87, 0.07);
+  transform: translateY(-2px);
+}
+
+.nav-link.active {
+  color: var(--primary-green);
+  background: linear-gradient(135deg, rgba(4, 120, 87, 0.1), rgba(16, 185, 129, 0.06));
+}
+
+/* Underline bar */
+.nav-link-underline {
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--secondary-green), var(--light-green));
+  border-radius: 2px;
+  transform: translateX(-50%);
+  transition: width 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.nav-link:hover .nav-link-underline,
+.nav-link.active .nav-link-underline {
+  width: 65%;
+}
+
+.mobile-quote-link { display: none; }
+
+/* ---- Header Right ---- */
 .header-right {
   display: flex;
   align-items: center;
   gap: 1rem;
-}
-
-/* Ensure Logo link doesn't underline */
-.logo {
-  text-decoration: none !important;
-}
-
-
-.nav a.active,
-.nav a[data-active="true"] {
-  background: linear-gradient(90deg, rgba(21, 163, 74, 0.12), rgba(34, 197, 94, 0.08));
-  box-shadow: inset 0 -4px 0 rgba(21, 163, 74, 0.06);
-}
-
-.nav a::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 0;
-  height: 2px;
-  background-color: var(--primary-green);
-  transition: all 0.3s ease;
-  transform: translateX(-50%);
-}
-
-.nav a:hover {
-  background-color: rgba(21, 163, 74, 0.1);
-  transform: translateY(-3px);
-}
-
-.nav a:hover::after {
-  width: 80%;
-}
-
-.menu-toggle {
-  display: none;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 8px;
-}
-
-.hamburger {
-  display: inline-block;
-  width: 30px;
-  height: 20px;
-  position: relative;
-}
-
-.hamburger .line {
-  display: block;
-  height: 2px;
-  width: 100%;
-  background: var(--text-dark);
-  border-radius: 2px;
-  transition: transform 0.28s cubic-bezier(.2, .9, .2, 1), opacity 0.18s ease;
-  position: absolute;
-  left: 0;
-}
-
-.hamburger .line-1 {
-  top: 0;
-}
-
-.hamburger .line-2 {
-  top: 9px;
-}
-
-.hamburger .line-3 {
-  top: 18px;
-}
-
-.menu-toggle.open .line-1 {
-  transform: translateY(9px) rotate(45deg);
-}
-
-.menu-toggle.open .line-2 {
-  opacity: 0;
-  transform: scaleX(0);
-}
-
-.menu-toggle.open .line-3 {
-  transform: translateY(-9px) rotate(-45deg);
-}
-
-/* Mobile Menu */
-@media (max-width: 1024px) {
-  .logo-image {
-    width: 60px;
-    height: 60px;
-  }
-
-  .logo-text h1 {
-    font-size: 1.3rem;
-  }
-}
-
-@media (max-width: 1024px) {
-  .header {
-    padding: 0.45rem 0;
-  }
-
-  .header-content {
-    gap: 1.5rem;
-  }
-
-  .logo-image {
-    width: 58px;
-    height: 58px;
-  }
-
-  .logo-text h1 {
-    font-size: 1.25rem;
-  }
-
-  .nav {
-    gap: 1rem;
-  }
-
-  .nav a {
-    padding: 0.3rem 0.6rem;
-    font-size: 0.85rem;
-  }
-
-  .btn-quote {
-    padding: 0.4rem 0.7rem;
-    font-size: 0.82rem;
-  }
-}
-
-@media (max-width: 992px) {
-  .logo-image {
-    width: 56px;
-    height: 56px;
-  }
-
-  .logo-text h1 {
-    font-size: 1.2rem;
-  }
-
-  .nav {
-    gap: 0.9rem;
-  }
-
-  .nav a {
-    padding: 0.28rem 0.55rem;
-    font-size: 0.82rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
-  }
-
-  .nav {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    flex-direction: column;
-    gap: 0;
-    background: var(--glass-bg);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    padding: 1rem 0;
-    box-shadow: var(--glass-shadow);
-    border-bottom: 1px solid var(--glass-border);
-  }
-
-  .nav.open {
-    display: flex;
-  }
-
-  .nav a {
-    padding: 0.85rem;
-    border-bottom: 1px solid rgba(16, 185, 129, 0.08);
-    color: var(--primary-green);
-    text-align: center;
-    font-weight: 600;
-    font-size: 0.95rem;
-  }
-
-  .nav a.mobile-quote-link {
-    display: block;
-    background: var(--secondary-green);
-    color: white;
-    margin: 1rem;
-    border-radius: 8px;
-    padding: 12px;
-    font-weight: 700;
-    box-shadow: 0 4px 15px rgba(21, 128, 61, 0.2);
-  }
-
-  .nav a:last-child {
-    border-bottom: none;
-  }
-
-  .header-content {
-    justify-content: space-between;
-  }
-
-  .logo {
-    gap: 1rem;
-  }
-
-  .logo-image {
-    width: 56px;
-    height: 56px;
-    padding: 4px;
-  }
-
-  .logo-text h1 {
-    font-size: 1.15rem;
-  }
-
-  .logo-text .tagline {
-    display: none;
-  }
+  flex-shrink: 0;
 }
 
 .header-cta {
@@ -357,122 +187,172 @@
 }
 
 .btn-quote {
-  background: var(--secondary-green);
-  color: white;
-  padding: 0.55rem 0.9rem;
-  border-radius: 8px;
+  background: linear-gradient(135deg, var(--secondary-green) 0%, #059669 100%);
+  color: white !important;
+  padding: 0.5rem 1.1rem;
+  border-radius: 10px;
   font-weight: 700;
-  box-shadow: 0 4px 15px rgba(21, 128, 61, 0.2);
-  transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
+  font-size: 0.875rem;
+  box-shadow: 0 4px 14px rgba(4, 120, 87, 0.25);
+  transition:
+    transform 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.22s ease,
+    background 0.22s ease;
+  white-space: nowrap;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
 }
 
 .btn-quote:hover {
-  background: var(--primary-green);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(10, 92, 47, 0.3);
+  background: linear-gradient(135deg, #059669 0%, var(--primary-green) 100%);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(4, 120, 87, 0.35);
+  color: white !important;
 }
 
+/* ---- Hamburger ---- */
+.menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  transition: background 0.2s ease;
+}
+
+.menu-toggle:hover { background: rgba(4, 120, 87, 0.08); }
+
+.hamburger {
+  display: inline-block;
+  width: 26px;
+  height: 18px;
+  position: relative;
+}
+
+.hamburger .line {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: var(--text-dark);
+  border-radius: 2px;
+  transition:
+    transform 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.2s ease,
+    width 0.28s ease;
+  position: absolute;
+  left: 0;
+  transform-origin: center;
+}
+
+.hamburger .line-1 { top: 0; }
+.hamburger .line-2 { top: 8px; }
+.hamburger .line-3 { top: 16px; }
+
+.menu-toggle.open .line-1 { transform: translateY(8px) rotate(45deg); }
+.menu-toggle.open .line-2 { opacity: 0; width: 0; }
+.menu-toggle.open .line-3 { transform: translateY(-8px) rotate(-45deg); }
+
+/* ---- Mobile Menu ---- */
 @media (max-width: 768px) {
-  .header-cta {
+  .menu-toggle { display: block; }
+  .header-cta  { display: none; }
+
+  .nav {
     display: none;
+    position: absolute;
+    top: calc(100% + 2px);
+    left: 10px;
+    right: 10px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    padding: 1rem;
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(4, 47, 35, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    transform-origin: top center;
+    animation: mobileNavIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
   }
 
-  .menu-toggle {
-    order: 3;
-    margin-left: 0.5rem;
+  @keyframes mobileNavIn {
+    from { opacity: 0; transform: translateY(-15px) scale(0.95); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
   }
 
-  .btn-quote {
-    padding: 0.45rem 0.75rem;
-    font-size: 0.75rem;
-    white-space: nowrap;
+  .nav.open { display: flex; }
+
+  .nav-link {
+    padding: 1rem;
+    border-radius: 12px;
+    font-size: 1rem;
+    border: 1px solid transparent;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    transition: all 0.2s ease;
   }
+
+  .nav-link:hover {
+    background: rgba(4, 120, 87, 0.08);
+    transform: scale(1.02);
+  }
+  
+  .nav-link-underline { display: none; }
+
+  .nav-link.active {
+    background: linear-gradient(135deg, rgba(4,120,87,0.1), rgba(16,185,129,0.05));
+    border-color: rgba(4, 120, 87, 0.1);
+    color: var(--primary-green);
+  }
+
+  .mobile-quote-link {
+    display: block;
+    background: linear-gradient(135deg, var(--secondary-green), #059669);
+    color: white !important;
+    margin-top: 0.5rem;
+    border-radius: 12px !important;
+    padding: 1rem !important;
+    font-weight: 700;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(4,120,87,0.25);
+    transition: transform 0.2s ease;
+  }
+  
+  .mobile-quote-link:active {
+    transform: scale(0.98);
+  }
+}
+
+/* ---- Breakpoint tweaks ---- */
+@media (max-width: 1100px) {
+  .nav { gap: 0; }
+  .nav-link { padding: 0.4rem 0.6rem; font-size: 0.84rem; }
+  .logo-text h1 { font-size: 1.28rem; }
+}
+
+@media (max-width: 992px) {
+  .nav-link { padding: 0.38rem 0.55rem; font-size: 0.82rem; }
+  .logo-image { width: 52px; height: 52px; }
 }
 
 @media (max-width: 576px) {
-  .header {
-    padding: 0.4rem 0;
-  }
-
-  .header-content {
-    gap: 1rem;
-  }
-
-  .logo {
-    gap: 0.5rem;
-  }
-
-  .logo-image {
-    width: 52px;
-    height: 52px;
-    padding: 4px;
-  }
-
-  .logo-text h1 {
-    font-size: 1.05rem;
-  }
-
-  .menu-toggle {
-    font-size: 1.3rem;
-  }
+  .header { padding: 0.4rem 0; }
+  .logo-image { width: 48px; height: 48px; }
+  .logo-text h1 { font-size: 1.1rem; }
+  .tagline { display: none; }
 }
 
 @media (max-width: 480px) {
-  .header {
-    padding: 0.4rem 0;
-  }
-
-  .logo {
-    gap: 0.4rem;
-  }
-
-  .logo-image {
-    width: 48px;
-    height: 48px;
-    padding: 4px;
-  }
-
-  .logo-text h1 {
-    font-size: 1rem;
-  }
-
-  .menu-toggle {
-    font-size: 1.3rem;
-  }
+  .logo-image { width: 44px; height: 44px; }
+  .logo-text h1 { font-size: 1rem; }
 }
 
 @media (max-width: 360px) {
-  .logo-image {
-    width: 44px;
-    height: 44px;
-    padding: 3px;
-  }
-
-  .logo-text h1 {
-    font-size: 0.9rem;
-  }
-}
-
-@keyframes slideDown {
-  from {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  .logo-image { width: 40px; height: 40px; }
+  .logo-text h1 { font-size: 0.9rem; }
 }

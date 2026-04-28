@@ -34,12 +34,13 @@ function HomePage() {
         <div className="container">
           <h2 className="section-title">Comprehensive Waste Services</h2>
           <div className="grid-container">
-            {services.map(service => (
+            {services.map((service, index) => (
               <ServiceCard
                 key={service.id}
                 service={service}
                 isExpanded={expandedId === service.id}
-                onToggle={() => toggleExpand(service.id)}
+                onToggle={toggleExpand}
+                className={`reveal-d${Math.min(index + 1, 5)}`}
               />
             ))}
           </div>
@@ -67,8 +68,8 @@ function HomePage() {
           </div>
 
           <div className="gallery-grid">
-            {filteredImages.map((img) => (
-              <div key={img.src} className="gallery-item reveal">
+            {filteredImages.map((img, index) => (
+              <div key={img.src} className={`gallery-item reveal reveal-d${Math.min(index % 4 + 1, 4)}`}>
                 <img src={img.src} alt={img.alt} loading="lazy" decoding="async" width={img.width} height={img.height} />
                 <div className="gallery-overlay">
                   <span>{img.category}</span>
@@ -84,8 +85,8 @@ function HomePage() {
       <section className="info-section reveal">
         <div className="container">
           <div className="info-grid">
-            {infoLinks.map((link) => (
-              <Link key={link.to} to={link.to} className="info-card reveal">
+            {infoLinks.map((link, index) => (
+              <Link key={link.to} to={link.to} className={`info-card reveal reveal-d${Math.min(index + 1, 5)}`}>
                 <h3>{link.title}</h3>
                 <p>{link.description}</p>
               </Link>

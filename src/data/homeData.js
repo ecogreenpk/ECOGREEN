@@ -53,7 +53,6 @@ export const galleryImages = [
     { src: '/images/pictures/Hazarduous/abestos.webp', category: 'Hazardous', alt: 'Asbestos Handling', width: 800, height: 450 },
     { src: '/images/pictures/Hazarduous/electronic waste.webp', category: 'Hazardous', alt: 'Electronic Waste', width: 800, height: 450 },
     { src: '/images/pictures/Hazarduous/incinetrating.webp', category: 'Hazardous', alt: 'Incinerating Station', width: 800, height: 450 },
-    { src: '/images/pictures/Hazarduous/medical waste.webp', category: 'Hazardous', alt: 'Medical Waste Disposal', width: 800, height: 450 },
     { src: '/images/pictures/Hazarduous/oil waste.webp', category: 'Hazardous', alt: 'Oil Waste Management', width: 800, height: 450 },
     { src: '/images/pictures/Hazarduous/stp.webp', category: 'Hazardous', alt: 'Sewage Treatment Plant', width: 800, height: 450 },
 

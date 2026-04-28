@@ -54,10 +54,12 @@ function NonHazardousWastePage() {
                   <li><span className="material-symbols-outlined">palette</span> Handcrafted Designs</li>
                   <li><span className="material-symbols-outlined">yard</span> Weather-Resistant & Sustainable</li>
                 </ul>
-                <Link to="/get-quote" className="btn-highlight">Inquire About Decor</Link>
+                <Link to="/upcycled-decor" className="btn-highlight">Explore Decor Collection</Link>
               </div>
               <div className="highlight-image">
-                <img src="/images/pictures/NON hazarduous/download.webp" alt="Upcycled Garden Decor example" />
+                <Link to="/upcycled-decor" aria-label="View Upcycled Decor Collection">
+                  <img src="/images/pictures/NON hazarduous/download.webp" alt="Upcycled Garden Decor example" />
+                </Link>
               </div>
             </div>
           </div>

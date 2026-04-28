@@ -198,11 +198,10 @@
 .value-item:hover,
 .facility-card:hover,
 .value-item.leaf-card:hover {
-  background: linear-gradient(135deg, var(--primary-green) 0%, var(--dark-green) 100%);
-  border-color: var(--light-green);
-  transform: translateY(-12px) scale(1.03);
+  /* background: linear-gradient(135deg, var(--primary-green) 0%, var(--dark-green) 100%);*/
+  border-color: var(--light-green); 
   box-shadow: 0 20px 40px rgba(4, 120, 87, 0.3);
-  color: white;
+  /* color: white; */
 }
 
 .expertise-item h3,
@@ -210,10 +209,11 @@
 .value-item h3,
 .facility-card h3,
 .cert-card h3 {
-  font-size: 1.3rem;
+ font-size: 1.3rem;
   margin-bottom: 12px;
   color: var(--secondary-green);
   font-weight: 600;
+  transition: color 0.3s ease; /* Added for smooth color change */
 }
 
 .expertise-item p,
@@ -221,9 +221,10 @@
 .value-item p,
 .facility-card p,
 .cert-card p {
-  color: #666;
+ color: #666;
   font-size: 0.95rem;
   line-height: 1.6;
+  transition: color 0.3s ease; /* Added for smooth color change */
 }
 
 .value-icon,

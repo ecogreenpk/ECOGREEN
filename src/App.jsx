@@ -71,11 +71,14 @@ function AppContent() {
       mutationObserver.observe(appContainer, { childList: true, subtree: true })
     }
 
+    // Initial check for elements that might already be in view on load/reload
+    setTimeout(attachObservers, 100)
+
     return () => {
       observer.disconnect()
       mutationObserver.disconnect()
     }
-  }, [])
+  }, [location]) // Re-run when location changes to ensure new page elements are observed
 
   return (
     <div className="app">

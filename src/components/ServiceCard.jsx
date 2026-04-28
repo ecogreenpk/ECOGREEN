@@ -1,14 +1,27 @@
 import { Link } from 'react-router-dom';
 import { memo } from 'react';
 
-const ServiceCard = memo(({ service, isExpanded, onToggle }) => {
+const ServiceCard = memo(({ service, isExpanded, onToggle, className = '' }) => {
+    // Handler for keyboard accessibility
+    const handleKeyDown = (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            onToggle(service.id);
+        }
+    };
+
+    const handleClick = () => {
+        onToggle(service.id);
+    };
+
     return (
         <div
-            className={`service-card reveal ${service.leaf ? 'leaf-card' : ''}`}
-            onClick={onToggle}
+            className={`service-card reveal ${service.leaf ? 'leaf-card' : ''} ${className}`}
+            onClick={handleClick}
             role="button"
             tabIndex={0}
-            onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && onToggle()}
+            onKeyDown={handleKeyDown}
+            aria-expanded={isExpanded}
         >
             <span className="material-symbols-outlined card-icon">{service.icon}</span>
             <h3>{service.title}</h3>
@@ -20,7 +33,9 @@ const ServiceCard = memo(({ service, isExpanded, onToggle }) => {
                             <li key={idx}>{detail}</li>
                         ))}
                     </ul>
-                    <Link to={service.link} className="btn-explore">{service.linkText}</Link>
+                    <Link to={service.link} className="btn-explore" onClick={(e) => e.stopPropagation()}>
+                        {service.linkText}
+                    </Link>
                 </div>
             )}
         </div>

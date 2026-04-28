@@ -4,141 +4,83 @@
 @import "@fontsource/outfit/700.css";
 @import "@fontsource/outfit/800.css";
 
-
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  scrollbar-width: none;
+}
+
+/* Custom Scrollbar - Hidden but functional */
+::-webkit-scrollbar {
+  width: 0;
+  display: none;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: transparent;
 }
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: var(--header-height);
+  overflow-x: hidden;
+  width: 100%;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+html, body {
+  overflow-x: hidden;
+  -ms-overflow-style: none;
 }
 
 :root {
-  /* 2026 Premium Glassmorphism Eco Palette */
-  --primary-green: #047857;    /* Rich emerald for glass surfaces */
-  --secondary-green: #10b981;  /* Vibrant mint for accents */
-  --light-green: #34d399;      /* Light mint for highlights */
-  --accent-yellow: #f59e0b;    /* Warm amber for contrast */
-  --accent-blue: #3b82f6;      /* Cool blue for balance */
-  --dark-green: #065f46;       /* Deep forest green for depth */
-  --deep-emerald: #064e3b;     /* Ultra deep for text and shadows */
+  /* ---- Brand palette ---- */
+  --primary-green: #047857;
+  --secondary-green: #10b981;
+  --light-green: #34d399;
+  --accent-yellow: #f59e0b;
+  --accent-blue: #3b82f6;
+  --dark-green: #065f46;
+  --deep-emerald: #064e3b;
 
-  /* Neutral tones for glass morphism */
+  /* Neutral */
   --text-dark: #1f2937;
   --text-gray: #6b7280;
   --text-light: #f9fafb;
   --background-light: #ffffff;
-  --background-alt: #f0fdf9;   /* Ultra-light mint with blue tint */
+  --background-alt: #f0fdf9;
 
-  /* Enhanced Glassmorphism Effects */
-  --glass-bg: rgba(255, 255, 255, 0.75);
-  --glass-border: rgba(255, 255, 255, 0.85);
-  --glass-shadow: 0 12px 50px rgba(6, 95, 70, 0.15);
+  /* Glass */
+  --glass-bg: rgba(255, 255, 255, 0.78);
+  --glass-border: rgba(255, 255, 255, 0.88);
+  --glass-shadow: 0 12px 48px rgba(4, 47, 35, 0.12);
   --glass-highlight: rgba(255, 255, 255, 0.4);
-  
-  /* Liquid morphism colors */
+
+  /* Liquid morphism */
   --liquid-primary: rgba(16, 185, 129, 0.1);
   --liquid-secondary: rgba(52, 211, 153, 0.08);
   --liquid-accent: rgba(245, 158, 11, 0.06);
 
-  /* Ultra-Smooth Transitions & Animations */
-  --transition-smooth: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  --transition-bouncy: all 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-  --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-slow: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-liquid: all 1s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-micro: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Transitions */
+  --transition-smooth: all 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  --transition-bouncy: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  --transition-fast: all 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-micro: all 0.12s cubic-bezier(0.4, 0, 0.2, 1);
 
-  /* New animation variables */
-  --animation-float: float 6s ease-in-out infinite;
-  --animation-pulse: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  --animation-glow: glow 3s ease-in-out infinite alternate;
-  --animation-liquid: liquid 8s ease-in-out infinite;
+  /* Header */
+  --header-height: clamp(64px, 8.5vw, 88px);
 
-  /* Glass morphism utility classes */
-  .glass-effect {
-    background: var(--glass-bg);
-    backdrop-filter: blur(16px) saturate(180%);
-    -webkit-backdrop-filter: blur(16px) saturate(180%);
-    border: 1px solid var(--glass-border);
-    box-shadow: var(--glass-shadow), inset 0 1px 2px var(--glass-highlight);
-  }
-
-  .liquid-effect {
-    background: linear-gradient(135deg, var(--liquid-primary) 0%, var(--liquid-secondary) 50%, var(--liquid-accent) 100%);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 8px 32px rgba(6, 95, 70, 0.1);
-  }
-
-  /* Ultra-Smooth Animation keyframes */
-  @keyframes float {
-    0%, 100% { 
-      transform: translateY(0px) rotate(0.5deg);
-      animation-timing-function: cubic-bezier(0.45, 0.05, 0.55, 0.95);
-    }
-    50% { 
-      transform: translateY(-10px) rotate(-0.5deg);
-      animation-timing-function: cubic-bezier(0.45, 0.05, 0.55, 0.95);
-    }
-  }
-
-  @keyframes pulse {
-    0%, 100% { 
-      opacity: 1; 
-      transform: scale(1);
-      animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    50% { 
-      opacity: 0.9; 
-      transform: scale(1.03);
-      animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    }
-  }
-
-  @keyframes glow {
-    from { 
-      box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
-      animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    to { 
-      box-shadow: 0 0 35px rgba(16, 185, 129, 0.5), 0 0 50px rgba(16, 185, 129, 0.15);
-      animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    }
-  }
-
-  @keyframes liquid {
-    0% { 
-      background-position: 0% 50%;
-      border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-      animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    50% { 
-      background-position: 100% 50%;
-      border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
-      animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    100% { 
-      background-position: 0% 50%;
-      border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-      animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    }
-  }
-
-  /* Magnetic Cursor Variables */
-  --magnetic-strength: 0.15;
-  /* How much the element attracts the cursor */
-  --magnetic-radius: 20px;
-  /* The radius around the element where the magnetic effect is active */
-
-  --header-height: clamp(64px, 8.5vw, 96px);
-
-  /* Fluid Typography Variables */
+  /* Fluid Typography */
   --font-size-base: clamp(1rem, 2.5vw, 1.125rem);
   --font-size-sm: clamp(0.875rem, 2vw, 1rem);
   --font-size-lg: clamp(1.25rem, 3vw, 1.5rem);
@@ -147,55 +89,202 @@ html {
   --font-size-3xl: clamp(2.5rem, 6vw, 3.5rem);
   --font-size-4xl: clamp(3rem, 7vw, 4.5rem);
 
-  /* Spacing Variables */
+  /* Spacing */
   --spacing-xs: clamp(0.25rem, 1vw, 0.5rem);
   --spacing-sm: clamp(0.5rem, 2vw, 1rem);
   --spacing-md: clamp(1rem, 3vw, 1.5rem);
   --spacing-lg: clamp(1.5rem, 4vw, 2rem);
   --spacing-xl: clamp(2rem, 5vw, 3rem);
 
-  /* Container Widths */
   --container-max-width: min(100% - 2rem, 1400px);
   --container-padding: clamp(1rem, 5vw, 2.5rem);
 }
 
+/* ============================================
+   KEYFRAMES (global)
+   ============================================ */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0.4deg); }
+  50%       { transform: translateY(-10px) rotate(-0.4deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.9; transform: scale(1.03); }
+}
+
+@keyframes glow {
+  from { box-shadow: 0 0 18px rgba(16, 185, 129, 0.25); }
+  to   { box-shadow: 0 0 32px rgba(16, 185, 129, 0.5), 0 0 60px rgba(16,185,129,0.12); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes rotation {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes bgFloat {
+  0%   { transform: translateY(0) rotate(0deg) scale(1); }
+  25%  { transform: translateY(-6px) rotate(-1.5deg) scale(1.015); }
+  50%  { transform: translateY(0) rotate(0.8deg) scale(1); }
+  75%  { transform: translateY(6px) rotate(-0.6deg) scale(1.01); }
+  100% { transform: translateY(0) rotate(0deg) scale(1); }
+}
+
+@keyframes logoShine {
+  0%, 100% { filter: saturate(1.1) contrast(1.1) brightness(1); }
+  50%       { filter: saturate(1.2) contrast(1.2) brightness(1.15); }
+}
+
+/* ============================================
+   BASE
+   ============================================ */
+
 body {
-  margin: 0;
-  padding: 0;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: var(--text-dark);
-  background: linear-gradient(135deg, var(--background-light) 0%, var(--background-alt) 100%);
+  background: var(--background-light);
   line-height: 1.6;
   overflow-x: hidden;
   font-size: var(--font-size-base);
 }
 
-html {
-  scroll-behavior: smooth;
-  overflow-x: hidden;
-  width: 100%;
-}
-
-/* Prevent accidental horizontal scroll from fixed UI elements */
-html,
-body {
-  overflow-x: hidden;
-  -ms-overflow-style: none;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   font-family: 'Outfit', sans-serif;
   font-weight: 700;
   color: var(--primary-green);
   letter-spacing: -0.02em;
 }
+
+p { line-height: 1.8; }
+
+a {
+  color: var(--secondary-green);
+  text-decoration: none;
+  transition: color 0.22s ease;
+}
+a:hover { color: var(--primary-green); }
+
+button, .btn {
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: none;
+  outline: none;
+  position: relative;
+  overflow: hidden;
+}
+
+button:active, .btn:active {
+  transform: scale(0.96);
+}
+
+/* Global Button Styles */
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary-green) 0%, var(--dark-green) 100%);
+  color: white;
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 15px rgba(4, 120, 87, 0.3);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 8px 25px rgba(4, 120, 87, 0.4);
+  transform: translateY(-2px);
+}
+
+input, textarea { font-family: inherit; }
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: auto;
+  object-fit: cover;
+}
+
+.facility-card img,
+.expertise-item img,
+.gallery-item img {
+  aspect-ratio: 16 / 9;
+}
+
+/* Scrollbar styling handled above */
+
+/* ============================================
+   SCROLL REVEAL
+   ============================================ */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Directional variants */
+.reveal-left  { transform: translateX(-28px); }
+.reveal-right { transform: translateX(28px); }
+.reveal-scale { transform: scale(0.94); }
+
+.reveal-left.in-view,
+.reveal-right.in-view,
+.reveal-scale.in-view {
+  transform: none;
+}
+
+/* Stagger delay utilities */
+.reveal-d1 { transition-delay: 0.08s; }
+.reveal-d2 { transition-delay: 0.16s; }
+.reveal-d3 { transition-delay: 0.24s; }
+.reveal-d4 { transition-delay: 0.32s; }
+.reveal-d5 { transition-delay: 0.40s; }
+
+/* ============================================
+   GLASS UTILITIES
+   ============================================ */
+
+.glass-effect {
+  background: var(--glass-bg);
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow), inset 0 1px 0 var(--glass-highlight);
+}
+
+/* ============================================
+   MATERIAL ICONS
+   ============================================ */
 
 .material-symbols-outlined {
   font-family: 'Material Symbols Outlined';
@@ -212,144 +301,17 @@ h6 {
   -webkit-font-smoothing: antialiased;
 }
 
-p {
-  line-height: 1.8;
-}
+/* ============================================
+   SELECTION
+   ============================================ */
 
-a {
-  color: var(--secondary-green);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
+::selection         { background: var(--secondary-green); color: white; }
+::-moz-selection    { background: var(--secondary-green); color: white; }
 
-a:hover {
-  color: var(--primary-green);
-}
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
 
-button {
-  font-family: inherit;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-button:active {
-  transform: scale(0.98);
-}
-
-input,
-textarea {
-  font-family: inherit;
-}
-
-/* Responsive Images */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  /* Prevent layout shift */
-  aspect-ratio: auto;
-  object-fit: cover;
-}
-
-/* Default aspect ratio for gallery-like images */
-.facility-card img,
-.expertise-item img,
-.gallery-item img {
-  aspect-ratio: 16 / 9;
-}
-
-/* Scrollbar - Hidden */
-::-webkit-scrollbar {
-  display: none;
-}
-
-
-
-/* Scroll reveal utility */
-.reveal {
-  opacity: 0;
-  transform: translateY(18px);
-  transition: opacity 600ms cubic-bezier(.2, .9, .2, 1), transform 600ms cubic-bezier(.2, .9, .2, 1);
-  will-change: opacity, transform;
-}
-
-.reveal.in-view {
-  opacity: 1;
-  transform: none;
-}
-
-.reveal-left {
-  transform: translateX(-24px);
-}
-
-.reveal-right {
-  transform: translateX(24px);
-}
-
-.reveal-left.in-view,
-.reveal-right.in-view {
-  transform: none;
-}
-
-/* Smooth animations for page load */
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-50px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes slideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(50px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-/* Selection color */
-::selection {
-  background-color: var(--secondary-green);
-  color: white;
-}
-
-::-moz-selection {
-  background-color: var(--secondary-green);
-  color: white;
-}
-
-/* Reduces animations for users with motion sensitivity */
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;

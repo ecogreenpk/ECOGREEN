@@ -31,14 +31,28 @@ function Footer() {
           </div>
           <div className="footer-section">
             <h4>Contact Info</h4>
-            <p><strong>Phone:</strong> <a href="tel:+923432300185" className="phone-link">+92 343 2300185</a></p>
-            <p><strong>Email:</strong> <a href="mailto:connect.ecogreen@gmail.com" className="email-link">connect.ecogreen@gmail.com</a></p>
-            <p><strong>Address:</strong> ECO-GREEN HQ<br />Waste Management District</p>
+            <p><strong>Phone:</strong></p>
+            <p><a href="tel:+923432300185" className="phone-link">+92 343 2300185</a></p>
+            <p><strong>Email:</strong></p>
+            <p><a href="mailto:connect.ecogreen@gmail.com" className="email-link">connect.ecogreen@gmail.com</a></p>
+            <p><strong>Address:</strong></p>
+            <p>ECO-GREEN HQ</p>
+            <p>Waste Management District</p>
           </div>
         </div>
         <div className="footer-bottom">
-          <p>&copy; 2026 EcoGreen. All rights reserved</p>
-          <Link to="/admin" className="staff-link" style={{ fontSize: '0.7rem', opacity: 0.5, marginLeft: '10px', textDecoration: 'none', color: 'inherit' }}>Staff Login</Link>
+          <p>&copy; 2026 EcoGreen. All rights reserved.</p>
+          <p>&copy; Developed By M Sameer.</p>
+          <p>
+            For any query Contact me
+            {' '}
+            <strong>Email:</strong>
+            {' '}
+            <a href="mailto:wscodework@gmail.com" className="email-link">wscodework@gmail.com</a>
+          </p>
+          <Link to="/admin" className="staff-link">
+            Staff Login
+          </Link>
         </div>
       </div>
     </footer>

@@ -1,8 +1,10 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import '../pages/styles/CommonPages.css'
 import { sendQuoteEmail } from '../services/emailService'
 
 function GetQuotePage() {
+  const location = useLocation()
   const [formData, setFormData] = useState({
     companyName: '',
     contactPerson: '',
@@ -16,6 +18,15 @@ function GetQuotePage() {
   })
 
   const [status, setStatus] = useState({ loading: false, success: false, error: null })
+
+  useEffect(() => {
+    if (!location.state?.prefilledWasteType) return
+
+    setFormData(prev => ({
+      ...prev,
+      wasteType: location.state.prefilledWasteType
+    }))
+  }, [location.state])
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -133,7 +144,7 @@ function GetQuotePage() {
                     value={formData.phone}
                     onChange={handleChange}
                     required
-                    placeholder="+91 9999 999999"
+                    placeholder="+92 999 9999999"
                   />
                 </div>
               </div>
@@ -155,6 +166,7 @@ function GetQuotePage() {
                   <option value="mixed">Mixed Waste</option>
                   <option value="organic">Organic Waste</option>
                   <option value="scrap">Scrap Materials</option>
+                  <option value="upcycled-decor">Upcycled Garden Decor</option>
                   <option value="other">Other</option>
                 </select>
               </div>

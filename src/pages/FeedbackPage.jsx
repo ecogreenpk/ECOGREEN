@@ -133,7 +133,7 @@ function FeedbackPage() {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    placeholder="+91 9999 999999"
+                    placeholder="+92 9999 999999"
                   />
                 </div>
               </div>
