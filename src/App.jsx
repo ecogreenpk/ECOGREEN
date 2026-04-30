@@ -72,9 +72,10 @@ function AppContent() {
     }
 
     // Initial check for elements that might already be in view on load/reload
-    setTimeout(attachObservers, 100)
+    const initialCheckId = setTimeout(attachObservers, 100)
 
     return () => {
+      clearTimeout(initialCheckId)
       observer.disconnect()
       mutationObserver.disconnect()
     }

@@ -2,6 +2,11 @@
    APP SHELL — Enhanced 2026
    =========================== */
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-height);
+}
+
 #root {
   width: 100%;
   min-height: 100vh;

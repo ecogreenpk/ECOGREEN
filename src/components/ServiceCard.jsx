@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { memo } from 'react';
+import PropTypes from 'prop-types';
 
 const ServiceCard = memo(({ service, isExpanded, onToggle, className = '' }) => {
     // Handler for keyboard accessibility
@@ -43,5 +44,21 @@ const ServiceCard = memo(({ service, isExpanded, onToggle, className = '' }) => 
 });
 
 ServiceCard.displayName = 'ServiceCard';
+
+ServiceCard.propTypes = {
+    service: PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired,
+        icon: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+        details: PropTypes.arrayOf(PropTypes.string).isRequired,
+        link: PropTypes.string.isRequired,
+        linkText: PropTypes.string.isRequired,
+        leaf: PropTypes.bool
+    }).isRequired,
+    isExpanded: PropTypes.bool.isRequired,
+    onToggle: PropTypes.func.isRequired,
+    className: PropTypes.string
+};
 
 export default ServiceCard;

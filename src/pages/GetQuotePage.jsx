@@ -1,10 +1,11 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import '../pages/styles/CommonPages.css'
 import { sendQuoteEmail } from '../services/emailService'
 
 function GetQuotePage() {
   const location = useLocation()
+  const prefilledWasteType = location.state?.prefilledWasteType
   const [formData, setFormData] = useState({
     companyName: '',
     contactPerson: '',
@@ -18,15 +19,24 @@ function GetQuotePage() {
   })
 
   const [status, setStatus] = useState({ loading: false, success: false, error: null })
+  const resetTimerRef = useRef(null)
 
   useEffect(() => {
-    if (!location.state?.prefilledWasteType) return
+    if (!prefilledWasteType) return
 
     setFormData(prev => ({
       ...prev,
-      wasteType: location.state.prefilledWasteType
+      wasteType: prefilledWasteType
     }))
-  }, [location.state])
+  }, [prefilledWasteType])
+
+  useEffect(() => {
+    return () => {
+      if (resetTimerRef.current) {
+        clearTimeout(resetTimerRef.current)
+      }
+    }
+  }, [])
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -54,10 +64,16 @@ function GetQuotePage() {
         location: '',
         requirements: ''
       })
-      setTimeout(() => setStatus(prev => ({ ...prev, success: false })), 5000)
+      if (resetTimerRef.current) {
+        clearTimeout(resetTimerRef.current)
+      }
+      resetTimerRef.current = setTimeout(() => {
+        setStatus(prev => ({ ...prev, success: false }))
+      }, 5000)
     } catch (err) {
       console.error('EmailJS Error:', err)
-      setStatus({ loading: false, success: false, error: 'Failed to send quote request. Please try again later.' })
+      const message = err?.message || 'Failed to send quote request. Please try again later.'
+      setStatus({ loading: false, success: false, error: message })
     }
   }
 

@@ -86,7 +86,7 @@ function QuotesSlider() {
               key={animKey}
               className={`quote-inner quote-anim-${direction}`}
             >
-              <p className="quote-text">"{QUOTES[currentQuote].text}"</p>
+              <p className="quote-text">&quot;{QUOTES[currentQuote].text}&quot;</p>
               <p className="quote-source">— {QUOTES[currentQuote].source}</p>
             </div>
           </div>

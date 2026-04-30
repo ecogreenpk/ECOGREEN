@@ -129,7 +129,7 @@ function UpcycledDecor() {
                       src={item.src}
                       alt={item.alt}
                       className="gallery-image"
-                      loading="lazy"
+                      loading="eager"
                     />
                   </div>
                   <div className="gallery-overlay">

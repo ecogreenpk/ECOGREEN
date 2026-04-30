@@ -8,10 +8,15 @@ function AdminDashboard() {
     const [error, setError] = useState(null);
     const [authenticated, setAuthenticated] = useState(false);
     const [password, setPassword] = useState('');
+    const [loginError, setLoginError] = useState(null);
+    const adminPassword = (import.meta.env.VITE_ADMIN_PASSWORD || '').trim();
 
     const fetchFeedbacks = async () => {
         try {
             setLoading(true);
+            if (!supabase) {
+                throw new Error('Supabase is not configured. Set VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY.');
+            }
             const { data, error } = await supabase
                 .from('feedbacks')
                 .select('*')
@@ -28,11 +33,16 @@ function AdminDashboard() {
 
     const handleLogin = (e) => {
         e.preventDefault();
-        if (password === 'ecogreen2026') {
+        setLoginError(null);
+        if (!adminPassword) {
+            setLoginError('Admin access is not configured. Set VITE_ADMIN_PASSWORD.');
+            return;
+        }
+        if (password === adminPassword) {
             setAuthenticated(true);
             fetchFeedbacks();
         } else {
-            alert('Invalid Password');
+            setLoginError('Invalid password.');
         }
     };
 
@@ -53,6 +63,9 @@ function AdminDashboard() {
                                 />
                             </div>
                             <button type="submit" className="btn-primary" style={{ width: '100%' }}>Login</button>
+                            {loginError && (
+                                <p style={{ color: '#ef4444', marginTop: '12px' }}>{loginError}</p>
+                            )}
                         </form>
                     </div>
                 </div>

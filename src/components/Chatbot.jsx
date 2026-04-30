@@ -98,12 +98,21 @@ function Chatbot() {
   const [input, setInput] = useState('');
   const bottomRef = useRef(null);
   const inputRef = useRef(null);
+  const replyTimerRef = useRef(null);
 
   useEffect(() => {
     if (open && bottomRef.current) {
       bottomRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   }, [messages, open, isTyping]);
+
+  useEffect(() => {
+    return () => {
+      if (replyTimerRef.current) {
+        clearTimeout(replyTimerRef.current);
+      }
+    };
+  }, []);
 
   const send = (text) => {
     if (!text.trim()) return;
@@ -112,7 +121,10 @@ function Chatbot() {
     setInput('');
     setIsTyping(true);
 
-    setTimeout(() => {
+    if (replyTimerRef.current) {
+      clearTimeout(replyTimerRef.current);
+    }
+    replyTimerRef.current = setTimeout(() => {
       const auto = matchAnswer(text);
       const reply = auto ?? "I'm not sure about that. Would you like to speak with our team via WhatsApp for more details?";
       setMessages(prev => [...prev, { from: 'bot', text: reply }]);

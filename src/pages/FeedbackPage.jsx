@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import '../pages/styles/CommonPages.css'
 import { supabase } from '../services/supabaseClient'
 
@@ -12,6 +12,15 @@ function FeedbackPage() {
   })
 
   const [status, setStatus] = useState({ loading: false, success: false, error: null })
+  const resetTimerRef = useRef(null)
+
+  useEffect(() => {
+    return () => {
+      if (resetTimerRef.current) {
+        clearTimeout(resetTimerRef.current)
+      }
+    }
+  }, [])
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -24,6 +33,11 @@ function FeedbackPage() {
   const handleSubmit = async (e) => {
     e.preventDefault()
     setStatus({ loading: true, success: false, error: null })
+
+    if (!supabase) {
+      setStatus({ loading: false, success: false, error: 'Feedback service is not configured yet.' })
+      return
+    }
 
     try {
       const { error } = await supabase
@@ -47,7 +61,12 @@ function FeedbackPage() {
         category: 'feedback',
         message: ''
       })
-      setTimeout(() => setStatus(prev => ({ ...prev, success: false })), 5000)
+      if (resetTimerRef.current) {
+        clearTimeout(resetTimerRef.current)
+      }
+      resetTimerRef.current = setTimeout(() => {
+        setStatus(prev => ({ ...prev, success: false }))
+      }, 5000)
     } catch (err) {
       console.error('Supabase Error:', err)
       setStatus({ loading: false, success: false, error: 'Failed to submit feedback. Please try again later.' })

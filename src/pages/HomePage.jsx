@@ -17,13 +17,13 @@ function HomePage() {
   const galleryTabs = useMemo(() => {
     const categories = ['All', ...new Set(galleryImages.map(img => img.category))]
     return categories
-  }, [])
+  }, [galleryImages])
 
   const filteredImages = useMemo(() => {
     return activeTab === 'All'
       ? galleryImages
       : galleryImages.filter(img => img.category === activeTab)
-  }, [activeTab])
+  }, [activeTab, galleryImages])
 
   return (
     <div className="home-page">
@@ -48,7 +48,7 @@ function HomePage() {
       </section>
 
       {/* Operational Showcase Gallery */}
-      <section className="gallery-section reveal">
+      <section className="gallery-section">
         <div className="container">
           <h2 className="section-title">Operational Discovery: System in Action</h2>
           <p className="section-subtitle">
@@ -56,7 +56,7 @@ function HomePage() {
           </p>
 
           <div className="gallery-tabs">
-            {galleryTabs.map(tab => (
+            {galleryTabs.map((tab) => (
               <button
                 key={tab}
                 className={`gallery-tab ${activeTab === tab ? 'active' : ''}`}
@@ -68,14 +68,19 @@ function HomePage() {
           </div>
 
           <div className="gallery-grid">
-            {filteredImages.map((img, index) => (
-              <div key={img.src} className={`gallery-item reveal reveal-d${Math.min(index % 4 + 1, 4)}`}>
-                <img src={img.src} alt={img.alt} loading="lazy" decoding="async" width={img.width} height={img.height} />
-                <div className="gallery-overlay">
+            {filteredImages.map((img) => (
+              <figure key={img.src} className="gallery-item">
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  width={img.width}
+                  height={img.height}
+                />
+                <figcaption className="gallery-overlay">
                   <span>{img.category}</span>
                   <h4>{img.alt}</h4>
-                </div>
-              </div>
+                </figcaption>
+              </figure>
             ))}
           </div>
         </div>

@@ -74,21 +74,21 @@ function AboutPage() {
             </p>
             <div className="expertise-grid">
               <div className="facility-card">
-                <img src="/images/pictures/safety/safety1.webp" alt="Safety Protocol" className="card-img-top" loading="lazy" width="800" height="450" />
+                <img src="/images/pictures/safety/safety1.webp" alt="Safety Protocol" className="card-img-top" loading="eager" width="800" height="450" />
                 <div className="card-content">
                   <h3>Strict Protocols</h3>
                   <p>Comprehensive safety measures for every processing stage.</p>
                 </div>
               </div>
               <div className="facility-card">
-                <img src="/images/pictures/safety/safety2.webp" alt="Protective Gear" className="card-img-top" loading="lazy" width="800" height="450" />
+                <img src="/images/pictures/safety/safety2.webp" alt="Protective Gear" className="card-img-top" loading="eager" width="800" height="450" />
                 <div className="card-content">
                   <h3>Personal Protection</h3>
                   <p>Ensuring our team is equipped with top-tier safety gear.</p>
                 </div>
               </div>
               <div className="facility-card">
-                <img src="/images/pictures/safety/safety3.webp" alt="Safety Training" className="card-img-top" loading="lazy" width="800" height="450" />
+                <img src="/images/pictures/safety/safety3.webp" alt="Safety Training" className="card-img-top" loading="eager" width="800" height="450" />
                 <div className="card-content">
                   <h3>Regular Training</h3>
                   <p>Continuous education on the latest safety and compliance standards.</p>

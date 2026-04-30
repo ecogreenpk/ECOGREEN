@@ -23,7 +23,7 @@ function HazardousWastePage() {
                 </div>
               </div>
               <div className="waste-item">
-                <img src="/images/pictures/Hazarduous/medical waste.webp" alt="Medical Waste" className="card-img-top" />
+                <img src="/images/pictures/Hazarduous/medicalwaste.webp" alt="Medical Waste" className="card-img-top" />
                 <div className="card-content">
                   <h3>Medical Waste</h3>
                   <p>Hospital and healthcare facility waste</p>

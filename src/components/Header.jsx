@@ -16,7 +16,6 @@ function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const scrolledRef = useRef(false)
-  const throttleRef = useRef(false)
   const location = useLocation()
 
   useEffect(() => {
